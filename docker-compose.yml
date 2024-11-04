@@ -1,0 +1,53 @@
+services:
+  postgres:
+    image: postgres
+    container_name: e-postgres-sql
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: e-commerce_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+    networks:
+      - e-commerce_network
+    restart: unless-stopped
+
+  mongodb:
+    image: mongo
+    container_name: e-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=zohidjon
+      - MONGO_INITDB_ROOT_PASSWORD=1234
+
+  mongo-express:
+    image: mongo-express
+    container_name: e-mongo-express
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=zohidjon
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=1234
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_BASICAUTH=false
+
+  mail-dev:
+    container_name: e-mail-dev
+    image: maildev/maildev
+    ports:
+      - "1080:1080"
+      - "1025:1025"
+
+volumes:
+  postgres_data:
+  mongodb_data:
+
+networks:
+  e-commerce_network:
+    driver: bridge
