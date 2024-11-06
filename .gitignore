@@ -130,3 +130,6 @@ fabric.properties
 /.idea/compiler.xml
 /.idea/encodings.xml
 /.idea/jarRepositories.xml
+/.idea/dataSources.xml
+/.idea/jpa.xml
+/.idea/sqldialects.xml
