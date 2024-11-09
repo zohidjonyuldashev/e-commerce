@@ -12,7 +12,7 @@ import uz.developer.zohidjon.customer.service.CustomerService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/customer")
+@RequestMapping("/api/v1/customers")
 @RequiredArgsConstructor
 public class CustomerController {
 

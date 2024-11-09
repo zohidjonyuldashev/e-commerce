@@ -1,0 +1,36 @@
+spring:
+  data:
+    mongodb:
+      username: zohidjon
+      password: 1234
+      host: localhost
+      port: 27017
+      database: notification
+      authentication-database: admin
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: paymentGroup,orderGroup
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: '*'
+        spring.json.type.mapping: orderConfirmation:uz.developer.zohidjon.order.kafka.OrderConfirmation,paymentConfirmation:uz.developer.zohidjon.payment.dto.PaymentNotificationRequest
+  mail:
+    host: localhost
+    port: 1025
+    username: zohidjon
+    password: 1234
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+        auth: true
+        starttls:
+          enabled: true
+        connectiontimeout: 5000
+        timeout: 3000
+        writetimeout: 5000
+server:
+  port: 8040
