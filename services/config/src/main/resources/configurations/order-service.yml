@@ -1,12 +1,12 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/orders
+    url: jdbc:postgresql://localhost:5434/ecommerce_db
     username: postgres
     password: 1234
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   kafka:
@@ -15,7 +15,7 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
-        spring.json.type.mapping: orderConfirmation:uz.developer.zohidjon.order.kafka.OrderConfirmation
+        spring.json.type.mapping: orderConfirmation:uz.zohidjon.ecommerce.kafka.OrderConfirmation
 server:
   port: 8070
 

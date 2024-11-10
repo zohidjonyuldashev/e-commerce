@@ -1,12 +1,12 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/payment
+    url: jdbc:postgresql://localhost:5434/ecommerce_db
     username: postgres
     password: 1234
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
@@ -16,7 +16,7 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
-        spring.json.type.mapping: paymentConfirmation:uz.developer.zohidjon.payment.dto.PaymentNotificationRequest
+        spring.json.type.mapping: paymentConfirmation:uz.zohidjon.ecommerce.kafka.PaymentNotificationRequest
 server:
   port: 8060
 application:

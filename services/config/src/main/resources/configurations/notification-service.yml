@@ -1,10 +1,8 @@
 spring:
   data:
     mongodb:
-      username: zohidjon
-      password: 1234
       host: localhost
-      port: 27017
+      port: 27018
       database: notification
       authentication-database: admin
   kafka:
@@ -16,7 +14,9 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: '*'
-        spring.json.type.mapping: orderConfirmation:uz.developer.zohidjon.order.kafka.OrderConfirmation,paymentConfirmation:uz.developer.zohidjon.payment.dto.PaymentNotificationRequest
+        spring.json.type.mapping:
+          paymentConfirmation: uz.zohidjon.ecommerce.kafka.PaymentNotificationRequest
+          orderConfirmation: uz.zohidjon.ecommerce.kafka.OrderConfirmation
   mail:
     host: localhost
     port: 1025
