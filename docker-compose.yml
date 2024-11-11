@@ -84,6 +84,19 @@ services:
     networks:
       - e-commerce_network
 
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0.5
+    container_name: e-keycloak
+    ports:
+      - "9098:8080"
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    networks:
+      - e-commerce_network
+    command:
+      - "start-dev"
+
 volumes:
   postgres_data:
   mongodb_data:
