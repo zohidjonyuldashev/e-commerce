@@ -31,17 +31,12 @@ A **microservices-based e-commerce application** designed to streamline online s
 - **Zipkin**: Distributed tracing for monitoring microservices.
 - **Docker**: Containerization for easy deployment.
 
-### **Frontend**
-- **Angular**: For building a responsive and dynamic user interface.
-- **Bootstrap**: For styling and responsive design.
-
 ### **Database**
 - **PostgreSQL**: Relational database for storing customer, product, and order data.
 - **MongoDB**: NoSQL database for storing notifications and other unstructured data.
 
 ### **Tools**
 - **Docker Compose**: For orchestrating multi-container applications.
-- **GitHub Actions**: CI/CD pipeline for automated testing and deployment.
 - **Postman**: For API testing during development.
 
 ---
@@ -105,5 +100,5 @@ The application is built using a **microservices architecture**, with the follow
    4.  Push to the branch (git push origin feature/YourFeatureName).
    5.  Open a pull request.
 ## License
-   This project is licensed under the MIT License. See the LICENSE file for details.
+   This project is licensed under the MIT License. See the [LICENSE](https://github.com/zohidjonyuldashev/e-commerce/blob/master/LICENSE) file for details.
    
